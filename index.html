@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سمسم AI - منصة الذكاء الاصطناعي الشاملة</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, sans-serif; }
+        body {
+            background: radial-gradient(circle at top, #1e1b4b 0%, #0b0f19 50%, #030712 100%);
+            color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; padding-bottom: 110px;
+        }
+        .header { width: 100%; max-width: 480px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; padding: 4px 8px; }
+        .logo-area { display: flex; align-items: center; gap: 10px; font-weight: bold; font-size: 20px; background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .badge-pro { background: linear-gradient(135deg, #9333ea, #c084fc); color: white; font-size: 11px; padding: 5px 12px; border-radius: 20px; font-weight: bold; }
+        .icon-btn { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); color: #e2e8f0; padding: 9px 14px; border-radius: 14px; cursor: pointer; }
+        .hero { text-align: center; margin-bottom: 28px; max-width: 450px; }
+        .hero-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(168, 85, 247, 0.1); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.25); padding: 6px 16px; border-radius: 20px; font-size: 12px; margin-bottom: 14px; }
+        .hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 12px; line-height: 1.4; }
+        .hero h1 span { background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: #94a3b8; font-size: 13.5px; line-height: 1.6; }
+        .cards-container { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+        .card { background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 18px; padding: 18px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: all 0.3s ease; }
+        .card:hover { transform: translateY(-3px); border-color: rgba(168, 85, 247, 0.5); }
+        .card-info h3 { font-size: 16px; margin-bottom: 6px; color: #f8fafc; font-weight: 700; }
+        .card-info p { font-size: 12.5px; color: #94a3b8; }
+        .card-icon { background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(56, 189, 248, 0.15)); color: #c084fc; width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justifyContent: center; font-size: 20px; border: 1px solid rgba(168, 85, 247, 0.2); }
+        #activeWorkspace { width: 100%; max-width: 480px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 18px; padding: 20px; margin-bottom: 24px; display: none; }
+        #activeWorkspace h3 { color: #c084fc; margin-bottom: 10px; font-size: 16px; }
+        #activeWorkspace input, #activeWorkspace textarea { width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 12px; border-radius: 12px; color: white; margin-bottom: 12px; font-size: 14px; }
+        #activeWorkspace button { background: linear-gradient(135deg, #9333ea, #3b82f6); color: white; border: none; padding: 10px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; }
+        .footer-rights { text-align: center; color: #64748b; font-size: 11.5px; letter-spacing: 0.8px; font-weight: 500; margin-bottom: 20px; }
+        .bottom-nav { position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%); width: calc(100% - 32px); max-width: 460px; background: rgba(11, 15, 25, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 26px; padding: 10px 18px; display: flex; justify-content: space-around; align-items: center; }
+        .nav-item { background: none; border: none; color: #64748b; font-size: 11px; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; }
+        .nav-item.active-primary { background: linear-gradient(135deg, #9333ea, #3b82f6); color: white; padding: 10px 22px; border-radius: 16px; font-weight: bold; flex-direction: row; gap: 8px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-area">✦ سمسم AI</div>
+        <div style="display: flex; gap: 8px; align-items: center;">
+            <span class="badge-pro">PRO V2</span>
+            <button class="icon-btn" onclick="alert('منصة سيف ميديا الرسمية')">✈️</button>
+        </div>
+    </div>
+    <div class="hero">
+        <div class="hero-pill">⚡ الجيل الجديد من الذكاء الاصطناعي</div>
+        <h1>ابتكر بلا حدود مع <span>سمسم AI</span></h1>
+        <p>نظام ذكي متكامل يدمج المحادثة الفورية، توليد الصور، والتحويل الصوتي بأعلى معايير الأداء.</p>
+    </div>
+    <div id="activeWorkspace">
+        <h3 id="workspaceTitle">اختر أداة للبدء</h3>
+        <textarea id="userInput" rows="3" placeholder="اكتب سؤالك أو وصفك هنا..."></textarea>
+        <button onclick="runAIAction()">تنفيذ الطلب 🚀</button>
+        <div id="resultArea" style="margin-top: 12px; font-size: 13px; color: #38bdf8;"></div>
+    </div>
+    <div class="cards-container">
+        <div class="card" onclick="openTool('💬 محادثة ذكية متطورة', 'اكتب سؤالك أو استفسارك وسيقوم سمسم بالرد عليك:')">
+            <div class="card-info"><h3>محادثة ذكية متطورة</h3><p>إجابات دقيقة بسياق زمني مستمر وسريع</p></div>
+            <div class="card-icon">💬</div>
+        </div>
+        <div class="card" onclick="openTool('🎨 توليد صور إبداعية', 'اكتب وصف الصورة التي ترغب بتصميمها باللغة الإنجليزية أو العربية:')">
+            <div class="card-info"><h3>توليد صور إبداعية</h3><p>حول الكلمات والأوصاف إلى لوحات فنية مذهلة</p></div>
+            <div class="card-icon">🎨</div>
+        </div>
+        <div class="card" onclick="openTool('🔊 صوت عربي احترافي (TTS)', 'اكتب النص الذي تريد تحويله إلى ملف صوتي MP3:')">
+            <div class="card-info"><h3>صوت عربي احترافي (TTS)</h3><p>استخراج وتحويل النصوص إلى ملفات صوتية MP3</p></div>
+            <div class="card-icon">🔊</div>
+        </div>
+    </div>
+    <div class="footer-rights">جميع الحقوق محفوظة لـ سيف ميديا © 2026</div>
+    <div class="bottom-nav">
+        <button class="nav-item" onclick="openTool('🔊 محول الصوتيات', 'ادخل النص الصوتي:')"><span>🔊</span><span>MP3</span></button>
+        <button class="nav-item" onclick="alert('سمسم AI - إصدار سيف ميديا المطور')"><span>⚙️</span><span>الإعدادات</span></button>
+        <button class="nav-item" onclick="openTool('🖼️ توليد الصور', 'ادخل وصف الصورة:')"><span>🖼️</span><span>IMG</span></button>
+        <button class="nav-item active-primary" onclick="location.reload();"><span>💬</span><span>AI</span></button>
+    </div>
+    <script>
+        function openTool(title, placeholderText) {
+            const ws = document.getElementById('activeWorkspace');
+            ws.style.display = 'block';
+            document.getElementById('workspaceTitle').innerText = title;
+            document.getElementById('userInput').placeholder = placeholderText;
+            document.getElementById('resultArea').innerText = '';
+            ws.scrollIntoView({ behavior: 'smooth' });
+        }
+        function runAIAction() {
+            const val = document.getElementById('userInput').value;
+            const res = document.getElementById('resultArea');
+            if(!val) { res.innerText = '⚠️ الرجاء كتابة النص أولاً!'; return; }
+            res.innerText = '⏳ جاري المعالجة بواسطة خوادم سمسم AI...';
+            setTimeout(() => { res.innerText = '✅ تم تنفيذ الطلب بنجاح! (جاهز للربط مع API حقيقي)'; }, 1000);
+        }
+    </script>
+</body>
+</html>
